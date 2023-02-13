@@ -33,8 +33,6 @@ print_report(pd.read_csv('../data/adult_k5_l2_new.csv'), QI, SA)
 print('\nUse case: k=5, t=0.7:')
 print_report(pd.read_csv('../data/adult_k5_t07_new.csv'), QI, SA)
 
-print('\nUse case: k=5, beta=1.5 (all):')
-print_report(pd.read_csv('../data/adult_k5_beta15.csv'), QI, SA)
+print('\nUse case: k=5, delta=1.5:')
+print_report(pd.read_csv('../data/adult_k5_delta15_new.csv'), QI, SA)
 
-print('\nUse case: k=5, beta=1.5 (without suppressed records):')
-print_report(pd.read_csv('../data/adult_k5_beta15_new.csv'), QI, SA)

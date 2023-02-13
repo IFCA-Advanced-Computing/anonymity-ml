@@ -55,7 +55,7 @@ for k in [2, 5, 10, 15, 20, 25, 50, 75, 100]:
     print(f'File: {file}, C_avg: {c_avg}')
 
 print('\nResults for CM')
-files = ['adult_k5_new.csv', 'adult_k5_l2_new.csv', 'adult_k5_t07_new.csv', 'adult_k5_beta15_new.csv']
+files = ['adult_k5_new.csv', 'adult_k5_l2_new.csv', 'adult_k5_t07_new.csv', 'adult_k5_delta15_new.csv']
 for file in files:
     db_anon = pd.read_csv(f'../data/{file}')
     print(f'File: {file}, CM: {calculate_cm(db, db_anon, QI, SA)}')

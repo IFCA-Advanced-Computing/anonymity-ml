@@ -32,15 +32,15 @@ def delete_rows(file_name, quasi_ident, new_file, fillna=True):
 
 QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
 for i in [2, 5, 10, 15, 20, 25, 50, 75, 100]:
-    file = f'data/adult_k{i}.csv'
-    NEW_FILE_NAME = f'data/adult_k{i}_new.csv'
+    file = f'adult_k{i}.csv'
+    NEW_FILE_NAME = f'adult_k{i}_new.csv'
     delete_rows(file, QI, NEW_FILE_NAME)
     print(f'Saved file: {NEW_FILE_NAME}')
 
-file = f'adult_k5_l2.csv'
-NEW_FILE_NAME = f'adult_k5_l2_new.csv'
-delete_rows(file, QI, NEW_FILE_NAME)
-print(f'Saved file: {NEW_FILE_NAME}')
+#file = f'adult_k5_l2.csv'
+#NEW_FILE_NAME = f'adult_k5_l2_new.csv'
+#delete_rows(file, QI, NEW_FILE_NAME)
+#print(f'Saved file: {NEW_FILE_NAME}')
 
 file = f'adult_k5_t07.csv'
 NEW_FILE_NAME = f'adult_k5_t07_new.csv'
@@ -49,5 +49,10 @@ print(f'Saved file: {NEW_FILE_NAME}')
 
 file = f'adult_k5_beta15.csv'
 NEW_FILE_NAME = f'adult_k5_beta15_new.csv'
+delete_rows(file, QI, NEW_FILE_NAME)
+print(f'Saved file: {NEW_FILE_NAME}')
+
+file = f'adult_k5_delta15.csv'
+NEW_FILE_NAME = f'adult_k5_delta15_new.csv'
 delete_rows(file, QI, NEW_FILE_NAME)
 print(f'Saved file: {NEW_FILE_NAME}')
