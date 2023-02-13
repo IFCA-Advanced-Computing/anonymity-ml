@@ -47,9 +47,9 @@ def train_models(data, test_split: int = 42):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=test_split, stratify=y)
 
     # kNN
-    knn = KNeighborsClassifier()
+    knn = KNeighborsClassifier(metric='minkowski')
     param_grid = {'n_neighbors': list(range(3, 51))}
-    grid_knn = GridSearchCV(knn, param_grid, cv=5)
+    grid_knn = GridSearchCV(knn, param_grid, cv=5, refit=True)
     grid_knn.fit(X_train, y_train)
     knn = grid_knn.best_estimator_
     acc_knn = knn.score(X_test, y_test)
@@ -60,9 +60,9 @@ def train_models(data, test_split: int = 42):
     auc_knn = sklearn.metrics.auc(fpr_knn, tpr_knn)
 
     # Random forest:
-    rf = RandomForestClassifier(random_state=42)
-    param_grid = {'n_estimators': [5, 10, 15, 20], 'max_depth': [2, 3, 4, 5, 6, 7, 8, 9]}
-    grid_rf = GridSearchCV(rf, param_grid, cv=5)
+    rf = RandomForestClassifier(n_estimators=100, criterion='gini', random_state=42)
+    param_grid = {'max_depth': [2, 3, 4, 5, 6, 7, 8, 9]}
+    grid_rf = GridSearchCV(rf, param_grid, cv=5, refit=True)
     grid_rf.fit(X_train, y_train)
     rf = grid_rf.best_estimator_
     acc_rf = rf.score(X_test, y_test)
@@ -73,9 +73,8 @@ def train_models(data, test_split: int = 42):
 
     # Adaptive Boosting
     ab = AdaBoostClassifier(random_state=42)
-    param_grid = {'n_estimators': [10, 50, 100, 150],
-                  'learning_rate': [0.01, 0.1, 0.5, 1]}
-    grid_ab = GridSearchCV(ab, param_grid, cv=5)
+    param_grid = {'n_estimators': [50, 100, 150], 'learning_rate': [0.01, 0.1, 0.5, 1]}
+    grid_ab = GridSearchCV(ab, param_grid, cv=5, refit=True)
     grid_ab.fit(X_train, y_train)
     ab = grid_ab.best_estimator_
     acc_ab = ab.score(X_test, y_test)
@@ -86,10 +85,10 @@ def train_models(data, test_split: int = 42):
 
     # Gradient Tree Boosting
     gb = GradientBoostingClassifier(random_state=42)
-    param_grid = {'n_estimators': [10, 50, 100, 150],
+    param_grid = {'n_estimators': [50, 100, 150],
                   'learning_rate': [0.01, 0.1, 0.5, 1],
                   'max_depth': [2, 4, 6, 8, 10]}
-    grid_gb = GridSearchCV(gb, param_grid, cv=5)
+    grid_gb = GridSearchCV(gb, param_grid, cv=5, refit=True)
     grid_gb.fit(X_train, y_train)
     gb = grid_gb.best_estimator_
     acc_gb = gb.score(X_test, y_test)
