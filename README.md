@@ -12,7 +12,7 @@ The results of applying four machine learning models: _kNN_, _Random Forest_, _A
 - Scenario 2: k-anonymity with k=5 and _t-closenss_ with _t=0.7_ ([adult_k5_t07.ipynb](https://gitlab.ifca.es/privacy-security/anonymity-ml/-/blob/main/ml_models/adult_k5_t07.ipynb)).
 - Scenario 2: k-anonymity with k=5 and _δ-disclosure privacy_ with _δ=1.5_ ([adult_k5_delta15.ipynb](https://gitlab.ifca.es/privacy-security/anonymity-ml/-/blob/main/ml_models/adult_k5_delta15.ipynb)).
 
-![Figure 1](https://gitlab.ifca.es/privacy-security/anonymity-ml/-/blob/main/ml_models/roc_all_models.svg "ROC curves with each ML model and scenario.")
+![Figure 1](ml_models/roc_all_models.png "ROC curves with each ML model and scenario.")
 
 Using the Python library _pyCANON_ [2], we have analyzed the metrics that are verified for each of the anonymity techniques used.  (see [check_anonymity.py](https://gitlab.ifca.es/privacy-security/anonymity-ml/-/blob/main/anonymity_metrics/check_anonymity.py)). Specifically, it is can be cheacked that when _δ=1.5_, the value of _t_ for _t-closeness_ is 0.47 (lower than the one set in the scenario where _t-closeness_ is satisfied for _t=0.7_). This is the most restrictive scenario (_δ=1.5_), and the results in each case go hand in hand with the ranking metric calculated in each case (see [anonymity_metrics.py](https://gitlab.ifca.es/privacy-security/anonymity-ml/-/blob/main/anonymity_metrics/anonymity_metrics.py)).
 
