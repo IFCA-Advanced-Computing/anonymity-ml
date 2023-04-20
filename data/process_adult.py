@@ -24,35 +24,35 @@ def delete_rows(file_name, quasi_ident, new_file, fillna=True):
     Also fills NA values with 0."""
     df = pd.read_csv(file_name)
     df_qi = df[quasi_ident]
-    df = df[:len(df_qi[df_qi != ['*'] * len(quasi_ident)].dropna(how='all'))]
+    df = df[: len(df_qi[df_qi != ["*"] * len(quasi_ident)].dropna(how="all"))]
     if fillna:
         df.fillna(0, inplace=True)
     df.to_csv(new_file, index=False)
 
 
-QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
+QI = ["age", "education", "occupation", "relationship", "sex", "native-country"]
 for i in [2, 5, 10, 15, 20, 25, 50, 75, 100]:
-    file = f'adult_k{i}.csv'
-    NEW_FILE_NAME = f'adult_k{i}_new.csv'
+    file = f"adult_k{i}.csv"
+    NEW_FILE_NAME = f"adult_k{i}_new.csv"
     delete_rows(file, QI, NEW_FILE_NAME)
-    print(f'Saved file: {NEW_FILE_NAME}')
+    print(f"Saved file: {NEW_FILE_NAME}")
 
-#file = f'adult_k5_l2.csv'
-#NEW_FILE_NAME = f'adult_k5_l2_new.csv'
-#delete_rows(file, QI, NEW_FILE_NAME)
-#print(f'Saved file: {NEW_FILE_NAME}')
+# file = f'adult_k5_l2.csv'
+# NEW_FILE_NAME = f'adult_k5_l2_new.csv'
+# delete_rows(file, QI, NEW_FILE_NAME)
+# print(f'Saved file: {NEW_FILE_NAME}')
 
-file = f'adult_k5_t07.csv'
-NEW_FILE_NAME = f'adult_k5_t07_new.csv'
+file = f"adult_k5_t07.csv"
+NEW_FILE_NAME = f"adult_k5_t07_new.csv"
 delete_rows(file, QI, NEW_FILE_NAME)
-print(f'Saved file: {NEW_FILE_NAME}')
+print(f"Saved file: {NEW_FILE_NAME}")
 
-file = f'adult_k5_beta15.csv'
-NEW_FILE_NAME = f'adult_k5_beta15_new.csv'
+file = f"adult_k5_beta15.csv"
+NEW_FILE_NAME = f"adult_k5_beta15_new.csv"
 delete_rows(file, QI, NEW_FILE_NAME)
-print(f'Saved file: {NEW_FILE_NAME}')
+print(f"Saved file: {NEW_FILE_NAME}")
 
-file = f'adult_k5_delta15.csv'
-NEW_FILE_NAME = f'adult_k5_delta15_new.csv'
+file = f"adult_k5_delta15.csv"
+NEW_FILE_NAME = f"adult_k5_delta15_new.csv"
 delete_rows(file, QI, NEW_FILE_NAME)
-print(f'Saved file: {NEW_FILE_NAME}')
+print(f"Saved file: {NEW_FILE_NAME}")
