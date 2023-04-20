@@ -1,4 +1,4 @@
-# Comparison of Machine Learning models applied on anonymized data with different techniques
+# Comparison of machine learning models applied on anonymized data with different techniques
 
 **Authors:** Judith Sáinz-Pardo Díaz and Álvaro López García (IFCA - CSIC).
 
