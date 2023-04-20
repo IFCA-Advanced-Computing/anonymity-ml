@@ -21,18 +21,17 @@ different scenarios".
 """
 
 # Quasi-identifiers and sensitive attribute:
-QI = ['age', 'education', 'occupation', 'relationship', 'sex', 'native-country']
-SA = ['salary-class']
+QI = ["age", "education", "occupation", "relationship", "sex", "native-country"]
+SA = ["salary-class"]
 
-print('Use case: k=5:')
-print_report(pd.read_csv('../data/adult_k5_new.csv'), QI, SA)
+print("Use case: k=5:")
+print_report(pd.read_csv("../data/adult_k5_new.csv"), QI, SA)
 
-print('\nUse case: k=5, l=2:')
-print_report(pd.read_csv('../data/adult_k5_l2_new.csv'), QI, SA)
+print("\nUse case: k=5, l=2:")
+print_report(pd.read_csv("../data/adult_k5_l2_new.csv"), QI, SA)
 
-print('\nUse case: k=5, t=0.7:')
-print_report(pd.read_csv('../data/adult_k5_t07_new.csv'), QI, SA)
+print("\nUse case: k=5, t=0.7:")
+print_report(pd.read_csv("../data/adult_k5_t07_new.csv"), QI, SA)
 
-print('\nUse case: k=5, delta=1.5:')
-print_report(pd.read_csv('../data/adult_k5_delta15_new.csv'), QI, SA)
-
+print("\nUse case: k=5, delta=1.5:")
+print_report(pd.read_csv("../data/adult_k5_delta15_new.csv"), QI, SA)
